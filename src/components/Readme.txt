@@ -1,0 +1,1 @@
+berisi Stateless / functional component
