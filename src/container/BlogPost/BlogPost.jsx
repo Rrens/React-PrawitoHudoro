@@ -14,13 +14,27 @@ class BlogPost extends Component {
     },
   };
 
+  postDataToAPI = () => {
+    axios.post("http://localhost:3001/posts", this.state.formBlogPost).then(
+      (res) => {
+        console.log(res);
+        this.getPostDataAPI();
+      },
+      (err) => {
+        console.log("error: ", err);
+      }
+    );
+  };
+
   getPostDataAPI = async () => {
-    axios.get("http://localhost:3001/posts").then((DataAPI) => {
-      console.log(DataAPI.data);
-      this.setState({
-        post: DataAPI.data,
+    axios
+      .get("http://localhost:3001/posts?_sort=id&_order=desc")
+      .then((DataAPI) => {
+        // console.log(DataAPI.data);
+        this.setState({
+          post: DataAPI.data,
+        });
       });
-    });
   };
 
   removeDataHandler = (data) => {
@@ -42,7 +56,7 @@ class BlogPost extends Component {
   //   // console.log(data);
   // }
 
-  componentWillMount() {
+  componentDidMount() {
     this.getPostDataAPI();
   }
 
@@ -69,6 +83,8 @@ class BlogPost extends Component {
     let newFormBlogSpot = { ...this.state.formBlogPost };
     // console.log("init state", this.state.formBlogPost);
     // console.log("new Value", newFormBlogSpot);
+    let timestamp = new Date().getTime();
+    newFormBlogSpot["id"] = timestamp;
     // merubah value object berasal nama (title, body)
     newFormBlogSpot[event.target.name] = event.target.value;
 
@@ -78,9 +94,14 @@ class BlogPost extends Component {
         formBlogPost: newFormBlogSpot,
       },
       () => {
-        console.log("value obj formBlogPost", this.state.formBlogPost);
+        // console.log("value obj formBlogPost", this.state.formBlogPost);
       }
     );
+  };
+
+  handleSubmit = () => {
+    // console.log(this.state.formBlogPost);
+    this.postDataToAPI();
   };
 
   render() {
@@ -104,7 +125,9 @@ class BlogPost extends Component {
             placeholder="add Blog Content"
             onChange={this.handleFormChange}
           />
-          <button className="btn-submit">Simpan</button>
+          <button className="btn-submit" onClick={this.handleSubmit}>
+            Simpan
+          </button>
         </div>
         {this.state.post.map((post) => {
           return (

@@ -2,18 +2,6 @@
   "posts": [
     {
       "userId": 8,
-      "id": 74,
-      "title": "enim unde ratione doloribus quas enim ut sit sapiente",
-      "body": "odit qui et et necessitatibus sint veniam\nmollitia amet doloremque molestiae commodi similique magnam et quam\nblanditiis est itaque\nquo et tenetur ratione occaecati molestiae tempora"
-    },
-    {
-      "userId": 8,
-      "id": 76,
-      "title": "doloremque officiis ad et non perferendis",
-      "body": "ut animi facere\ntotam iusto tempore\nmolestiae eum aut et dolorem aperiam\nquaerat recusandae totam odio"
-    },
-    {
-      "userId": 8,
       "id": 77,
       "title": "necessitatibus quasi exercitationem odio",
       "body": "modi ut in nulla repudiandae dolorum nostrum eos\naut consequatur omnis\nut incidunt est omnis iste et quam\nvoluptates sapiente aliquam asperiores nobis amet corrupti repudiandae provident"
@@ -155,6 +143,18 @@
       "id": 100,
       "title": "at nam consequatur ea labore ea harum",
       "body": "cupiditate quo est a modi nesciunt soluta\nipsa voluptas error itaque dicta in\nautem qui minus magnam et distinctio eum\naccusamus ratione error aut"
+    },
+    {
+      "id": 1,
+      "title": "title 1",
+      "body": "Body 1",
+      "userId": 1
+    },
+    {
+      "id": 1646673424370,
+      "title": "ada",
+      "body": "adaa",
+      "userId": 1
     }
   ],
   "comments": [],
