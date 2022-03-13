@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import "./BlogPost.css";
-import Post from "../../components/Post/Post";
+
+import Post from "../../../components/Post/Post";
 import axios from "axios";
 
 class BlogPost extends Component {
@@ -14,7 +15,7 @@ class BlogPost extends Component {
     },
   };
 
-  postDataToAPI = () => {
+  postDataToAPI = async () => {
     axios.post("http://localhost:3001/posts", this.state.formBlogPost).then(
       (res) => {
         console.log(res);
