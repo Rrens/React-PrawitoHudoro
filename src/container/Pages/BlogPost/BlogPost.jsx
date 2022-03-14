@@ -3,6 +3,10 @@ import "./BlogPost.css";
 
 import Post from "../../../components/Post/Post";
 import axios from "axios";
+// import { Link, Navigate } from "react-router-dom";
+// import { useNavigate } from "@reach/router";
+import { useNavigate } from "react-router-dom";
+// import navigate from ".";
 
 class BlogPost extends Component {
   state = {
@@ -105,7 +109,26 @@ class BlogPost extends Component {
     this.postDataToAPI();
   };
 
+  // handleDetail = (id) => {
+  //   // <Link to="/">Home</Link>;
+  //   // let history = useNavigate();
+  //   // this.props.history.push(`/detail/${id}`);
+  //   // this.props.history.push(`/detail/${id}`);
+  //   // <Link to={`/detail/${id}`} />;
+  //   // history(`/detail/${id}`);
+  //   // history("/home");
+  //   // history(`?term=${searchValue}`);
+
+  //   const navigate = useNavigate();
+
+  //   navigate(`/home`);
+
+  //   // <Navigate to="/" replace={true} />;
+  //   console.log(this.props);
+  // };
+
   render() {
+    console.log(this.props);
     return (
       <Fragment>
         <p className="section-title">Blog Post</p>
@@ -137,6 +160,7 @@ class BlogPost extends Component {
               data={post}
               remove={this.removeDataHandler}
               choose={this.getPostDataAPI}
+              // Detail={this.handleDetail}
             />
           );
         })}
@@ -145,5 +169,23 @@ class BlogPost extends Component {
     );
   }
 }
+
+// function MyBackButton() {
+//   const navigation = useNavigate();
+
+//   return (
+//     <button
+//       title="back"
+//       onClick={() => {
+//         navigation.goBack();
+//       }}
+//     />
+//   );
+// }
+
+// function navigate(props) {
+//   const navigation = useNavigate();
+//   return <MyBackButton {...props} navigation={navigation} />;
+// }
 
 export default BlogPost;

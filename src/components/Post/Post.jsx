@@ -1,13 +1,28 @@
 import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Post = (props) => {
+  let navigate = useNavigate();
+  // let id   = useParams();
+
+  console.log(props);
+  function handleDetail(id) {
+    navigate(`/detail/${id}`);
+  }
   return (
     <div className="post">
       <div className="img-thumb">
         <img src="https://placeimg.com/200/150/tech" />
       </div>
       <div className="content">
-        <div className="title">{props.data.title}</div>
+        <p
+          className="title"
+          onClick={() => {
+            handleDetail(props.data.id);
+          }}
+        >
+          {props.data.title}
+        </p>
         <div className="desc">{props.data.body}</div>
         <button
           className="remove"
