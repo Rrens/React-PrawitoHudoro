@@ -5,10 +5,11 @@ const Post = (props) => {
   let navigate = useNavigate();
   // let id   = useParams();
 
-  console.log(props);
+  // console.log(props);
   function handleDetail(id) {
     navigate(`/detail/${id}`);
   }
+
   return (
     <div className="post">
       <div className="img-thumb">
@@ -25,12 +26,12 @@ const Post = (props) => {
         </p>
         <div className="desc">{props.data.body}</div>
         <button
-          className="remove"
+          className="update"
           onClick={() => {
-            props.remove(props.data.id);
+            props.update(props.data);
           }}
         >
-          Choose
+          Update
         </button>
         <button
           className="remove"
@@ -43,6 +44,12 @@ const Post = (props) => {
       </div>
     </div>
   );
+};
+
+const methods = {
+  componentDidMount(props) {
+    console.log("I mounted! Here are my props: ", props);
+  },
 };
 
 export default Post;
